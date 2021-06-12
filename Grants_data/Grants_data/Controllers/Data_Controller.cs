@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Grants_data.Models;
@@ -24,8 +21,7 @@ namespace Grants_data.Controllers
             return await db.Data_s.ToListAsync();
         }
 
-        // GET api/Friends/5
-        [HttpGet("{id}")]
+        [HttpGet("{konkurs_name}")]
         public async Task<ActionResult<Data_>> Get(string konkurs_name)
         {
             Data_ Data = await db.Data_s.FirstOrDefaultAsync(x => x.konkurs_name == konkurs_name);
